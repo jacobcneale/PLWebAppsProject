@@ -1,6 +1,7 @@
 .pagesection {padding-top:25px}
 
 .scrollwheel-items {margin-top:25px; overflow:auto; white-space: nowrap;}
+/* https://designshack.net/articles/css/whats-the-deal-with-display-inline-block/ */
 .scrollwheel-items > div {height:400px; display:inline-block; border-style:solid;margin-top:5px; vertical-align:top;}
 
 .calendar > div > div {width:300px; justify-content:center}
@@ -17,5 +18,8 @@
 .myfeed > div > div > span.postheader > * {display:inline}
 .myfeed > div > div > span.postheader > p {color:grey;margin-right:5px;margin-left:10px}
 .myfeed > div > div > span.postheader > p > a {color:grey}
+
+.events {display: flex; flex-wrap: wrap; flex-direction: row; justify-content: space-around}
+.events > div {border-style:solid; margin:5px; width:300px; height:300px;}
 
 
