@@ -1,16 +1,18 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang en>
     <head>
         <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1"> 
+        <meta http-equiv="X-UA-Compatible" content="IE-edge">
+        <meta name="viewport" content="width-device-width, initial-scale=1">
+        
+        <meta name="author" content="Jacob Neale & Eric Li">
+        <meta name="description" content="Sprint 2 for PL for Web Apps">
+        <meta name="keywords" content="sprint uvafoodies">
+        <title>Uva Foodies Home</title>
 
-        <meta name="author" content="Eric Li, Jacob Neale">
-        <meta name="description" content="">
-        <meta name="keywords" content="">
-        <title>Home Page</title>        
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-    </head>  
+        <link href="styles/main.css" rel="stylesheet">
+    </head>
     <body>
         <header class="border-bottom">
             <nav class="navbar navbar-expand-sm">
@@ -43,7 +45,106 @@
               </nav>
         </header>
 
+        <div class="container-fluid pagesection calendar">
+          <h3 id="heading3">Calendar</h3>
+          <div class="container-fluid scrollwheel-items">
+            <div>
+              <p>Monday</p>
+              <p>Event-Summer Bash</p>
+            </div>
+            <div>
+              <p>Tuesday</p>
+              <p>O'Hill-Taco Tuesday</p>
+            </div>
+            <div>
+              <p>Wednesday</p>
+              <p>Newcomb-Wing Wednesday</p>
+              <p>Event-Food Trucks Meal Exchange</p>
+            </div>
+            <div class="noevents">
+              <p>Thursday</p>
+              <p>No Events</p>
+            </div>
+            <div class="noevents">
+              <p>Friday</p>
+              <p>No events</p>
+            </div>
+            <div class="noevents">
+              <p>Saturday</p>
+              <p>No events</p>
+            </div>
+            <div class="noevents">
+              <p>Sunday</p>
+              <p>No events</p>
+            </div>
+          </div>
+        </div>
 
+        <div class="container-fluid pagesection myfeed">
+          <h3>My Feed</h3>
+          <div class="container-fluid scrollwheel-items">
+            <div>
+              <span class="postheader">
+                <h3>Too few late night</h3>
+                <p>Post by <a href="profile.html">@jacobneale</a></p>
+              </span>
+              <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Et pharetra pharetra massa massa. In nisl nisi scelerisque eu ultrices. Massa vitae tortor condimentum lacinia quis. Nisl nisi scelerisque eu ultrices vitae auctor eu augue ut. Risus nullam eget felis eget nunc lobortis mattis aliquam faucibus.
+              </p>
+            </div>
+            <div>
+              <span class="postheader">
+                <h3>The new event is</h3>
+                <p>Post by <a href="profile.html">@jacobneale</a></p>
+              </span>
+              <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Et pharetra pharetra massa massa. In nisl nisi scelerisque eu ultrices. Massa vitae tortor condimentum lacinia quis. Nisl nisi scelerisque eu ultrices vitae auctor eu augue ut. Risus nullam eget felis eget nunc lobortis mattis aliquam faucibus.
+              </p>
+            </div>
+            <div>
+              <span class="postheader">
+                <h3>O'hill scrambled eggs</h3>
+                <p>Review by <a href="profile.html">@jacobneale</a></p>
+              </span>
+              <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Et pharetra pharetra massa massa. In nisl nisi scelerisque eu ultrices. Massa vitae tortor condimentum lacinia quis. Nisl nisi scelerisque eu ultrices vitae auctor eu augue ut. Risus nullam eget felis eget nunc lobortis mattis aliquam faucibus.
+              </p>
+            </div>
+            <div>
+              <span class="postheader">
+                <h3>Ultimate O'hill burger build</h3>
+                <p>Post by <a href="profile.html">@jacobneale</a></p>
+              </span>
+              <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Et pharetra pharetra massa massa. In nisl nisi scelerisque eu ultrices. Massa vitae tortor condimentum lacinia quis. Nisl nisi scelerisque eu ultrices vitae auctor eu augue ut. Risus nullam eget felis eget nunc lobortis mattis aliquam faucibus.
+              </p>
+            </div>
+            <div>
+              <span class="postheader">
+                <h3>The downfall of West Range</h3>
+                <p>Review by <a href="profile.html">@jacobneale</a></p>
+              </span>
+              <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Et pharetra pharetra massa massa. In nisl nisi scelerisque eu ultrices. Massa vitae tortor condimentum lacinia quis. Nisl nisi scelerisque eu ultrices vitae auctor eu augue ut. Risus nullam eget felis eget nunc lobortis mattis aliquam faucibus.
+              </p>
+            </div>
+            <div>
+              <span class="postheader">
+                <h3>What did I do to deserve this</h3>
+                <p>Post by <a href="profile.html">@jacobneale</a></p>
+              </span>
+              <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Et pharetra pharetra massa massa. In nisl nisi scelerisque eu ultrices. Massa vitae tortor condimentum lacinia quis. Nisl nisi scelerisque eu ultrices vitae auctor eu augue ut. Risus nullam eget felis eget nunc lobortis mattis aliquam faucibus.
+              </p>
+            </div>
+            <div class="viewmore">
+              <h3><a href="explore.html">See More Posts</a></h3>
+              <p></p>
+            </div>
+          </div>
+        </div>
+
+        <!-- https://getbootstrap.com/docs/5.2/examples/footers/ -->
         <div class="container">
             <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
               <p class="col-md-4 mb-0 text-muted">© 2023 Jacob Neale, Eric Li</p>
@@ -61,6 +162,6 @@
               </ul>
             </footer>
           </div>
-          <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
     </body>
 </html>

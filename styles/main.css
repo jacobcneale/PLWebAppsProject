@@ -1,0 +1,26 @@
+.pagesection {padding-top:25px}
+
+.scrollwheel-items {margin-top:25px; overflow:auto; white-space: nowrap;}
+/* https://designshack.net/articles/css/whats-the-deal-with-display-inline-block/ */
+.scrollwheel-items > div {height:400px; display:inline-block; border-style:solid;margin-top:5px; vertical-align:top;}
+
+.calendar > div > div {width:300px; justify-content:center; background-color:lightgrey;}
+.calendar > div > div:hover {background-color:white}
+.calendar > div > div p {text-align:center; border-style:solid; width:75%; margin:0 auto; margin-top:5px; overflow:hidden;}
+.calendar > div > div.noevents p {border-style:none;}
+.calendar > div > div p:first-child { width:100px; border-style:none;}
+
+.myfeed > div > div {width:600px;}
+.myfeed > div > div > p {text-wrap:balance;margin-left:5px;margin-top:5px}
+.myfeed > div > div.viewmore {width:300px; padding-top:175px;}
+.myfeed > div > div.viewmore h3 {text-align:center;}
+.myfeed > div > div.viewmore h3 a {text-decoration:none; color:black;}
+.myfeed > div > div.viewmore h3 a:hover {color:grey;}
+.myfeed > div > div > span.postheader > * {display:inline}
+.myfeed > div > div > span.postheader > p {color:grey;margin-right:5px;margin-left:10px}
+.myfeed > div > div > span.postheader > p > a {color:grey}
+
+.events {display: flex; flex-wrap: wrap; flex-direction: row; justify-content: space-around}
+.events > div {border-style:solid; margin:5px; width:300px; height:300px;}
+
+
