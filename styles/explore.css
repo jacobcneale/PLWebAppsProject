@@ -1,0 +1,15 @@
+#postsbox .post {
+    border-color: black;
+    border-radius: 10px;
+    width: 30%;
+}
+
+.box {
+    margin: auto;
+    padding: 20px;
+    width: 90%;
+    background-color: #ffffff;
+    margin-bottom: 22px;
+    margin-top: 22px;
+    place-items: center;
+}

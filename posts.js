@@ -4,19 +4,25 @@ if (typeof(Storage) !== "undefined") {
         var user = "Jacob Neale"
         var title = document.getElementById("title").value;
         var story = document.getElementById("story").value;
+        
+        const currentDate = new Date();
+        var date = currentDate.toDateString();
 
         var formData = {
             user: user,
             title: title,
             story: story,
+            date: date,
         };
+
+        var key = localStorage.length;
 
         if (title.trim() === "" || story.trim() === "") {
             alert("Please fill in all required fields.");
             return;
         }
 
-        localStorage.setItem("formData", JSON.stringify(formData));
+        localStorage.setItem(key, JSON.stringify(formData));
         window.location.href = "explore.html";
     }
 } else {
