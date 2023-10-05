@@ -1,0 +1,35 @@
+.post {
+    border: solid 1px black;
+    width: 45%;
+    display: inline-block;
+    margin: 20px;
+    padding: 30px;
+    place-content: center;
+    text-align: left;
+}
+
+.box {
+    margin: auto;
+    padding: 20px;
+    width: 90%;
+    background-color: #ffffff;
+    margin-bottom: 0px;
+    margin-top: 0px;
+    place-content: center;
+}
+
+@media only screen and (max-width: 900px){
+    .post {
+        border: solid 1px black;
+        width: 90%;
+        display: inline-block;
+        margin: 20px;
+        padding: 30px;
+        place-content: center;
+        text-align: left;
+    }
+}
+
+#title:hover, #title:active, #story:hover, #story:active {
+    background-color: lightgreen;
+}
