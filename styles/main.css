@@ -4,7 +4,8 @@
 /* https://designshack.net/articles/css/whats-the-deal-with-display-inline-block/ */
 .scrollwheel-items > div {height:400px; display:inline-block; border-style:solid;margin-top:5px; vertical-align:top;}
 
-.calendar > div > div {width:300px; justify-content:center}
+.calendar > div > div {width:300px; justify-content:center; background-color:lightgrey;}
+.calendar > div > div:hover {background-color:white}
 .calendar > div > div p {text-align:center; border-style:solid; width:75%; margin:0 auto; margin-top:5px; overflow:hidden;}
 .calendar > div > div.noevents p {border-style:none;}
 .calendar > div > div p:first-child { width:100px; border-style:none;}
