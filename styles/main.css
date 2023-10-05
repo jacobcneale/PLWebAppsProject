@@ -17,10 +17,10 @@
 .myfeed > div > div.viewmore {width:300px; padding-top:175px;}
 .myfeed > div > div.viewmore h3 {text-align:center;}
 .myfeed > div > div.viewmore h3 a {text-decoration:none; color:black;}
-.myfeed > div > div.viewmore h3 a:hover {color:grey;}
-.myfeed > div > div > span.postheader > * {display:inline}
-.myfeed > div > div > span.postheader > p {color:grey;margin-right:5px;margin-left:10px}
-.myfeed > div > div > span.postheader > p > a {color:grey}
+.myfeed > div > div.viewmore h3 a:hover {color:rgb(110,110,110);}
+.myfeed > div > div > div.postheader > * {display:inline}
+.myfeed > div > div > div.postheader > p {color:rgb(110, 110, 110);margin-right:5px;margin-left:10px}
+.myfeed > div > div > div.postheader > p > a {color:rgb(110,110,110)}
 
 /* Mainly styles: events.html */
 .events {display: flex; flex-wrap: wrap; flex-direction: row; justify-content: space-around}
