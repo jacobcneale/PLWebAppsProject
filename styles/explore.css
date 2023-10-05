@@ -1,7 +1,11 @@
-#postsbox .post {
-    border-color: black;
-    border-radius: 10px;
-    width: 30%;
+.post {
+    border: solid 1px black;
+    width: 45%;
+    display: inline-block;
+    margin: 20px;
+    padding: 30px;
+    place-content: center;
+    text-align: left;
 }
 
 .box {
@@ -9,7 +13,7 @@
     padding: 20px;
     width: 90%;
     background-color: #ffffff;
-    margin-bottom: 22px;
-    margin-top: 22px;
-    place-items: center;
+    margin-bottom: 0px;
+    margin-top: 20px;
+    place-content: center;
 }
