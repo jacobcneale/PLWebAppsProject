@@ -13,11 +13,34 @@ class Database {
         $port = Config::$db["port"];
 
         $this->dbConnector = pg_connect("host=$host port=$port dbname=$database user=$user password=$password");
+        $this->createDatabases();
     }
 
-    public function createDatabses(){
-        
+    public function createDatabases(){
+        $dbHandle = $this->dbConnector;
+
+        // Create tables
+        $res  = pg_query($dbHandle, "create table if not exists users (
+                username  text primary key,
+                password  text
+        );");
+
+        $res  = pg_query($dbHandle, "create table if not exists posts (
+                id serial primary key,
+                name text,
+                email text,
+                password text,
+                score int);");
+                
+        $res  = pg_query($dbHandle, "create table if not exists likes (
+                post serial primary key,
+                name text,
+                email text,
+                password text,
+                score int);");
     }
+
+    public function addUser($username, $password, $)
 
     public function query($query, ...$params) {
         // Use safe querying
