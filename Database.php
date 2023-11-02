@@ -27,20 +27,39 @@ class Database {
 
         $res  = pg_query($dbHandle, "create table if not exists posts (
                 id serial primary key,
-                name text,
-                email text,
-                password text,
-                score int);");
+                title text,
+                username text,
+                date text,
+                content text);");
                 
         $res  = pg_query($dbHandle, "create table if not exists likes (
-                post serial primary key,
-                name text,
-                email text,
-                password text,
-                score int);");
+                post int,
+                username text);");
     }
 
-    public function addUser($username, $password, $)
+    public function dropTables(){
+        $res  = pg_query($this->dbConnector, "drop table if exists users");
+        $res  = pg_query($this->dbConnector, "drop table if exists posts");
+        $res  = pg_query($this->dbConnector, "drop table if exists likes");
+    }
+
+    public function addUser($username, $password){
+        #Need to add unique username verification
+        $res = pg_query_params($this->dbConnector, "insert into users (username, password) values ($1, $2);", array($username, $password));
+    }
+
+    public function verifyUser($username, $password){
+        $res = pg_query_params($this->dbConnector, "select * from users where username=$1 and password=$2;", array($username, $password));
+        if ($res && pg_num_rows($res) > 0) {
+            return true;
+        }else{
+            return false;
+        }
+    }
+
+    public function addPost(){
+
+    }
 
     public function query($query, ...$params) {
         // Use safe querying
