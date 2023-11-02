@@ -1,14 +1,11 @@
 <?php
 
 class ModelController {
-
-    private $questions = [];
-
-    private $input = [];
-
     private $db;
 
     private $errorMessage = "";
+
+    private $input = [];
 
     /**
      * Constructor
@@ -17,6 +14,7 @@ class ModelController {
         session_start();
         $this->db = new Database();
         $this->input = $input;
+
     }
 
     public function run() {
@@ -26,13 +24,20 @@ class ModelController {
             $command = $this->input["command"];
 
         switch($command) {
+            case "newUser":
+                $this->newUser();
+                break;
             case "login":
                 $this->login();
-            case "question":
-                $this->showQuestion();
                 break;
-            case "answer":
-                $this->answerQuestion();
+            case "reset":
+                $this->reset();
+                break;
+            case "post":
+                $this->makePost();
+                break;
+            case "submit":
+                $this->submitPost();
                 break;
             case "logout":
                 $this->logout();
@@ -78,43 +83,50 @@ class ModelController {
     /*
      * Handle user registration and log-in
      */
+    public function makePost(){
+        include("posts.php");
+    }
+
+    public function submitPost(){
+        $title = $_POST["Title"];
+        $username=$_SESSION["username"];
+        $date=date('Y-m-d');
+        $content=$_POST["story"];
+        $this->db->addPost($title, $username, $date, $content);
+        $this->showPosts();
+
+    }
+
+    public function reset(){
+        $this->db->dropTables();
+        $this->db->createDatabases();
+        $this->showWelcome();
+    }
+
+    public function showPosts(){
+        $database = $this->db;
+        include("explore.php");
+    }
+
+    
+    public function newUser() {
+        $this->db->addUser($_POST["nameN"], $_POST["passwdB"]);
+        $_SESSION["username"] = $_POST["nameN"];
+        $this->showPosts();
+    }
+
     public function login() {
         // need a name, email, and password
-        if(isset($_POST["fullname"]) && !empty($_POST["fullname"]) &&
-            isset($_POST["email"]) && !empty($_POST["email"]) &&
-            isset($_POST["passwd"]) && !empty($_POST["passwd"])) {
-
-                // Check if user is in database
-                $res = $this->db->query("select * from users where email = $1;", $_POST["email"]);
-                if (empty($res)) {
-                    // User was not there, so insert them
-                    $this->db->query("insert into users (name, email, password, score) values ($1, $2, $3, $4);",
-                        $_POST["fullname"], $_POST["email"],
-                        password_hash($_POST["passwd"], PASSWORD_DEFAULT), 0);
-                    $_SESSION["name"] = $_POST["fullname"];
-                    $_SESSION["email"] = $_POST["email"];
-                    $_SESSION["score"] = 0;
-                    // Send user to the appropriate page (question)
-                    header("Location: ?command=question");
-                    return;
-                } else {
-                    // User was in the database, verify password
-                    if (password_verify($_POST["passwd"], $res[0]["password"])) {
-                        // Password was correct
-                        $_SESSION["name"] = $res[0]["name"];
-                        $_SESSION["email"] = $res[0]["email"];
-                        $_SESSION["score"] = $res[0]["score"];
-                        header("Location: ?command=question");
-                        return;
-                    } else {
-                        $this->errorMessage = "Incorrect password.";
-                    }
-                }
-        } else {
-            $this->errorMessage = "Name, email, and password are required.";
-        }
         // If something went wrong, show the welcome page again
-        $this->showWelcome();
+        $res = $this->db->verifyUser($_POST["name"], $_POST["passwd"]);
+        if($res){
+            //$this->showWelcome();
+            $_SESSION["username"] = $_POST["name"];
+            $this->showPosts();
+        }else{
+            //$this->showPosts();
+            $this->showWelcome();
+        }
     }
 
     /**
