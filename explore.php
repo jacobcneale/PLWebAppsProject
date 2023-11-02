@@ -54,6 +54,13 @@
 
         <?php
             $posts = $database->getPosts();
+
+            $header="<section class=\"box\"><h1>My Posts</h1></section>";
+            echo $header;
+
+            $header="<section class=\"box\"><h1>All Posts</h1></section>";
+            echo $header;
+
             $html="<section class=\"box\"> <div style=\"text-align: center;\">";
             foreach($posts as $post){
                 $html.="<div class=\"post\">";
