@@ -57,8 +57,13 @@ class Database {
         }
     }
 
-    public function addPost(){
+    public function addPost($title, $username, $date, $content){
+        $res = pg_query_params($this->dbConnector, "insert into posts (title, username, date, content) values ($1, $2);", 
+                array($title, $username, $date, $content));
+    }
 
+    public function getPosts(){
+        $res = pg_query_params($this->dbConnector, "select * from posts");
     }
 
     public function query($query, ...$params) {
