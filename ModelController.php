@@ -61,8 +61,17 @@ class ModelController {
         $res = $this->db->getUser($_POST["username"]);
         if (!(empty($res))){
             if (password_verify($_POST["password"],$res["passhash"])){
-                $this->showWelcome();
+                $_SESSION["user"]=$_POST["username"];
+                $this->showWelcome($_SESSION["user"]);
             }
+            else {
+                $this->showLogin();
+                echo "PASSWORD INCORRECT";
+            }
+        }
+        else {
+            $this->showLogin();
+            echo "Username not found. Sign up instead?";
         }
     }
 

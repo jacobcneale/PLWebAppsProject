@@ -47,6 +47,9 @@
                             <button type='submit'>Sign In</button>
                         </form>";
                         }
+                        else {
+                            echo $username;
+                        }
                         ?>
                     
                   </div>

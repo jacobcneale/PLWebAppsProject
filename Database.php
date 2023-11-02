@@ -61,6 +61,7 @@ class Database {
 
     public function getUser($username){
         $res = $this->query("select * from users where username = $1;",$username);
+        if (empty($res)) return null;
         return ["username"=>$res[0]["username"],"passhash"=>$res[0]["password"]];
     }
 
