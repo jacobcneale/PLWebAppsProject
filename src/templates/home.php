@@ -65,7 +65,7 @@
         <!-- CALENDAR VIEW -->
         <div class="container-fluid pagesection calendar">
           <h3 id="heading3">Calendar</h3>
-          <div class="container-fluid scrollwheel-items">
+          <div class="container-fluid row row-cols-auto calendar-items">
             <div>
               <p>Monday</p>
               <p>Event-Summer Bash</p>
@@ -101,7 +101,7 @@
         <!-- FEED VIEW -->
         <div class="container-fluid pagesection myfeed">
           <h3>My Feed</h3>
-          <div class="container-fluid scrollwheel-items">
+          <div class="container-fluid row row-cols-auto post-items">
             <div>
               <div class="postheader">
                 <h3>Too few late night</h3>
