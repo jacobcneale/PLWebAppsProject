@@ -33,12 +33,32 @@ class ModelController {
             case "reset":
                 $this->reset();
                 break;
+            case "post":
+                $this->makePost();
+                break;
+            case "submit":
+                $this->submitPost();
+                break;
             case "logout":
                 $this->logout();
             default:
                 $this->showWelcome();
                 break;
         }
+    }
+
+    public function makePost(){
+        include("posts.php");
+    }
+
+    public function submitPost(){
+        $title = $_POST["title"];
+        $username=$_SESSION["username"];
+        $date=date('Y-m-d');
+        $content=$_POST["story"];
+        $this->db->addPost($title, $username, $date, $content);
+        $this->showPosts();
+
     }
 
     public function reset(){
@@ -52,12 +72,14 @@ class ModelController {
     }
 
     public function showPosts(){
+        $database = $this->db;
         include("explore.php");
     }
 
     
     public function newUser() {
         $this->db->addUser($_POST["nameN"], $_POST["passwdB"]);
+        $_SESSION["username"] = $_POST["nameN"];
         $this->showPosts();
     }
 
@@ -67,6 +89,7 @@ class ModelController {
         $res = $this->db->verifyUser($_POST["name"], $_POST["passwd"]);
         if($res){
             //$this->showWelcome();
+            $_SESSION["username"] = $_POST["name"];
             $this->showPosts();
         }else{
             //$this->showPosts();

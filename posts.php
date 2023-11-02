@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-
 <html lang="en">
     <head>
         <meta charset="utf-8">
@@ -7,11 +6,11 @@
         <meta name="viewport" content="width=device-width, initial-scale=1"> 
 
         <meta name="author" content="Eric Li, Jacob Neale">
-        <meta name="description" content="Explore posts left by other users">
-        <meta name="keywords" content="Explore Posts Users">
-        <title>Explore Posts</title>
+        <meta name="description" content="Make your own post.">
+        <meta name="keywords" content="Posts Users Account Explore">
+        <title>Submit a Post</title> 
         <link rel="stylesheet" href="styles/explore.css">
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">        
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">       
     </head>  
     <body>
         <!--The header of the web page-->
@@ -46,24 +45,30 @@
               </nav>
         </header>
 
-        <!--The main title of the page-->
+        <!--Form box-->
         <section class="box">
-          <h1>Explore Posts</h1>
-          <a href="index.php?command=post">Make a post yourself.</a>
-        </section>
+            <h1>Create a Post</h1>
+            <form action="?command=submit" method="post">
+                <label for="title">Title:</label>
 
-        <?php
-            $posts = $database->getPosts();
-            $html="<section class=\"box\"> <div style=\"text-align: center;\">";
-            foreach($posts as $post){
-                $html.="<h4>". $post["title"] ."</h4>";
-                $html.="<label> Created by: " . $post["username"] . "</label><br>";
-                $html.="<label> " . $post["date"] . "</label>";
-                $html.="<p> " . $post["content"] . "</p>";
-            }
-            $html.="</div> </section>";
-            echo $html;
-        ?>
+                <!--Title of Post-->
+                <!--input type="text" id="title" name="title" size="80" required-->
+                <input type="text" id="title" name="title" style="width: 80%;" required>
+        
+                <br>
+
+                <label id="wordcount">0 words</label><br>
+        
+                <!--Main Post-->
+                <!--textarea id="story" name="story" rows="10" cols="100" maxlength="400" required></textarea-->
+                <label for="story">Post:</label><br>
+                <textarea name="story" id="story" rows="10" style="width: 80%;" maxlength="400" required></textarea>
+
+                <br>
+        
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+        </section>
 
         <!--The footer-->
         <div class="container">
@@ -79,10 +84,11 @@
                 <li class="nav-item"><a href="explore.html" class="nav-link px-2 text-muted">Explore Posts</a></li>
                 <li class="nav-item"><a href="restaurants.html" class="nav-link px-2 text-muted">Restaurants</a></li>
                 <li class="nav-item"><a href="events.html" class="nav-link px-2 text-muted">Events</a></li>
-                <li class="nav-item"><a href="aboutus.html" class="nav-link px-2 text-muted">About Us</a></li>
+                <li class="nav-item"><a href="abooutus.html" class="nav-link px-2 text-muted">About Us</a></li>
               </ul>
             </footer>
           </div>
+          <script src="posts.js"></script>
           <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
     </body>
 </html>
