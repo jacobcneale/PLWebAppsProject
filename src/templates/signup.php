@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-<html lang="en">
 <head>
   <meta charset="UTF-8">  
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -8,14 +7,14 @@
   <title>UVAFoodies Login</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"  integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"  crossorigin="anonymous">       
 </head>
-    <form action="?command=verify_login" method="post">
+<body>
+    <form action="?command=verify_signup" method="post">
         <label for="name">Username</label>
         <input type="text" id="name" name="username">
         <label for="psswd">Password</label>
         <input type="text" id="psswd" name="password">
-        <button type="submit">Log In</button>
+        <label for="vpsswd">Verify Password</label>
+        <input type="text" id="vpsswd" name="verify_password">
+        <button type="submit">Sign Up</button>
     </form>
-    <form action="?command=signup" method="post">
-      <button type="submit">Sign Up</button>
-    </form>
-</html>
+</body>

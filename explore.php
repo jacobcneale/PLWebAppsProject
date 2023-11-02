@@ -18,7 +18,9 @@
         <header class="border-bottom">
             <nav class="navbar navbar-expand-sm">
                 <div class="container-fluid">
-                  <a class="navbar-brand" href="index.html"><img src="LogoV1.png" alt="UVA Foodies Logo" height="50" width="50"></a>
+                  <form action="?command=welcome" method="post">
+                    <button type="submit"><img src="LogoV1.png" alt="UVA Foodies Logo" height="50" width="50"></button>
+                  </form>
                   <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                   </button>
@@ -40,7 +42,7 @@
                     <form class="d-flex" role="search">
                       <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
                     </form>
-                    <a href="#" ><img src="pfp.png" alt="Profile Picture" height="35" width="35"></a>
+                    <?php echo $_SESSION["user"] ?>
                   </div>
                 </div>
               </nav>

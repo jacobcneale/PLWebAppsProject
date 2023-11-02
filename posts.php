@@ -39,7 +39,7 @@
                     <form class="d-flex" role="search">
                       <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
                     </form>
-                    <a href="#" ><img src="pfp.png" alt="Profile Picture" height="35" width="35"></a>
+                    <?php echo $_SESSION["user"] ?>
                   </div>
                 </div>
               </nav>
