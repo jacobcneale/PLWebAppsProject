@@ -49,11 +49,11 @@
         <section class="box">
             <h1>Create a Post</h1>
             <form action="?command=submit" method="post">
-                <label for="title">Title:</label>
+                <label for="Title">Title:</label>
 
                 <!--Title of Post-->
                 <!--input type="text" id="title" name="title" size="80" required-->
-                <input type="text" id="title" name="title" style="width: 80%;" required>
+                <input type="text" id="Title" name="Title" style="width: 80%;" required>
         
                 <br>
 

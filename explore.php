@@ -56,10 +56,12 @@
             $posts = $database->getPosts();
             $html="<section class=\"box\"> <div style=\"text-align: center;\">";
             foreach($posts as $post){
+                $html.="<div class=\"post\">";
                 $html.="<h4>". $post["title"] ."</h4>";
                 $html.="<label> Created by: " . $post["username"] . "</label><br>";
                 $html.="<label> " . $post["date"] . "</label>";
                 $html.="<p> " . $post["content"] . "</p>";
+                $html.="</div>";
             }
             $html.="</div> </section>";
             echo $html;

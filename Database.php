@@ -58,7 +58,7 @@ class Database {
     }
 
     public function addPost($title, $username, $date, $content){
-        $res = pg_query_params($this->dbConnector, "insert into posts (title, username, date, content) values ($1, $2, $3,);", 
+        $res = pg_query_params($this->dbConnector, "insert into posts (title, username, date, content) values ($1, $2, $3, $4);", 
                 array($title, $username, $date, $content));
     }
 

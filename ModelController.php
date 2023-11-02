@@ -52,7 +52,7 @@ class ModelController {
     }
 
     public function submitPost(){
-        $title = $_POST["title"];
+        $title = $_POST["Title"];
         $username=$_SESSION["username"];
         $date=date('Y-m-d');
         $content=$_POST["story"];
