@@ -33,6 +33,9 @@ class ModelController {
             case "reset":
                 $this->reset();
                 break;
+            case "posts":
+                $this->showPosts();
+                break;
             case "post":
                 $this->makePost();
                 break;
