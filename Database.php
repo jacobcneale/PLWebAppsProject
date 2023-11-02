@@ -40,8 +40,6 @@ class Database {
                 score int);");
     }
 
-    public function addUser($username, $password, $)
-
     public function query($query, ...$params) {
         // Use safe querying
         $res = pg_query_params($this->dbConnector, $query, $params);
@@ -56,4 +54,16 @@ class Database {
         // in the database)
         return pg_fetch_all($res);
     }
+
+    public function addUser($username,$password){
+        $this->query("insert into users (username,password) values ($1,$2);",$username,password_hash($password,PASSWORD_DEFAULT));
+    }
+
+    public function getUser($username){
+        $res = $this->query("select * from users where username = $1;",$username);
+        return ["username"=>$res[0]["username"],"passhash"=>$res[0]["password"]];
+    }
+
+    
+
 }

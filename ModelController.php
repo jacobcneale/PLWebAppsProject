@@ -16,7 +16,6 @@ class ModelController {
     public function __construct($input) {
         session_start();
         $this->db = new Database();
-        
         $this->input = $input;
     }
 
@@ -37,9 +36,33 @@ class ModelController {
                 break;
             case "logout":
                 $this->logout();
+            case "goto_login":
+                $this->showLogin();
+                break;
+            case "verify_login":
+                $this->verifyLogin();
+                break;
             default:
                 $this->showWelcome();
                 break;
+        }
+    }
+
+
+    public function showWelcome($username=null){
+        include("src/templates/home.php");
+    }
+
+    public function showLogin(){
+        include("src/templates/login.php");
+    }
+
+    public function verifyLogin(){
+        $res = $this->db->getUser($_POST["username"]);
+        if (!(empty($res))){
+            if (password_verify($_POST["password"],$res["passhash"])){
+                $this->showWelcome();
+            }
         }
     }
 
