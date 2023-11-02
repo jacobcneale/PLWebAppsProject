@@ -8,6 +8,7 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"  integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"  crossorigin="anonymous">       
 </head>
 <body>
+    <div class="d-flex justify-content-center align-items-center mt-5">
     <form action="?command=verify_signup" method="post">
         <label for="name">Username</label>
         <input type="text" id="name" name="username">
@@ -17,4 +18,5 @@
         <input type="text" id="vpsswd" name="verify_password">
         <button type="submit">Sign Up</button>
     </form>
+    </div>
 </body>
