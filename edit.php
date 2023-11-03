@@ -6,9 +6,9 @@
         <meta name="viewport" content="width=device-width, initial-scale=1"> 
 
         <meta name="author" content="Eric Li, Jacob Neale">
-        <meta name="description" content="Make your own post.">
+        <meta name="description" content="Edit your own post.">
         <meta name="keywords" content="Posts Users Account Explore">
-        <title>Submit a Post</title> 
+        <title>Edit a Post</title> 
         <link rel="stylesheet" href="styles/explore.css">
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">       
     </head>  
@@ -39,7 +39,7 @@
                     <form class="d-flex" role="search">
                       <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
                     </form>
-                    <?php echo $_SESSION["user"] ?>
+                    <a href="#" ><img src="pfp.png" alt="Profile Picture" height="35" width="35"></a>
                   </div>
                 </div>
               </nav>
@@ -47,27 +47,28 @@
 
         <!--Form box-->
         <section class="box">
-            <h1>Create a Post</h1>
+            <h1>Edit Your Post</h1>
             <?=$message?>
-            <form action="?command=submit" method="post">
-                <label for="Title">Title:</label>
+            <form action="?command=submitEdit" method="post">
+                <label for="Title2">Title:</label>
 
                 <!--Title of Post-->
                 <!--input type="text" id="title" name="title" size="80" required-->
-                <input type="text" id="Title" name="Title" style="width: 80%;" >
+                <input type="text" id="Title2" name="Title2" style="width: 80%;" value="<?=$title?>"/>
         
                 <br>
 
                 <label id="wordcount">0 words</label><br>
+                <input type="hidden" name="editNumber" value=<?=$id?>>
         
                 <!--Main Post-->
                 <!--textarea id="story" name="story" rows="10" cols="100" maxlength="400" required></textarea-->
-                <label for="story">Post:</label><br>
-                <textarea name="story" id="story" rows="10" style="width: 80%;" maxlength="400"></textarea>
+                <label for="story2">Post:</label><br>
+                <textarea name="story2" id="story2" rows="10" style="width: 80%;" maxlength="400"><?=$content?></textarea>
 
                 <br>
         
-                <button type="submit" class="btn btn-primary">Submit Changes</button>
+                <button type="submit" class="btn btn-primary">Submit</button>
             </form>
         </section>
 

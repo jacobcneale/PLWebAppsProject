@@ -68,12 +68,22 @@ class Database {
     }
 
     public function getUserPosts($username){
-        $res = pg_query_params($this->dbConnector, "select * from posts where username=$1", $username);
+        $res = pg_query_params($this->dbConnector, "select * from posts where username=$1", array($username));
         return pg_fetch_all($res);
     }
 
+    public function updatePost($id, $title, $username, $date, $content){
+        $res = pg_query_params($this->dbConnector, "update posts set title=$2, username=$3, date=$4, content=$5 where id=$1;", 
+                array($id, $title, $username, $date, $content));
+    }
+
     public function deletePost($id){
-        $res = pg_query_params($this->dbConnector, "delete from posts where id=$1", $id);
+        $res = pg_query_params($this->dbConnector, "delete from posts where id=$1", array($id));
+    }
+
+    public function getPost($id){
+        $res = pg_query_params($this->dbConnector, "select * from posts where id=$1", array($id));
+        return pg_fetch_all($res);
     }
 
     public function query($query, ...$params) {

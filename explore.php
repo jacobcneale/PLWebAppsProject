@@ -55,11 +55,35 @@
         </section>
 
         <?php
+            if(isset($_SESSION["username"])){
+                $header="<section class=\"box\"><h1>My Posts</h1></section>";
+                echo $header;
+
+                $posts = $database->getUserPosts($_SESSION["username"]);
+                $html="<section class=\"box\"> <div style=\"text-align: center;\">";
+                foreach($posts as $post){
+                    $html.="<div class=\"post\">";
+                    $html.="<h4>". $post["title"] ."</h4>";
+                    $html.="<label> Created by: " . $post["username"] . "</label><br>";
+                    $html.="<label> " . $post["date"] . "</label>";
+                    $html.="<p> " . $post["content"] . "</p>";
+
+                    $html.="<form action=\"?command=delete\" method=\"post\">";
+                    $html.="<input type=\"hidden\" name=\"number\" value=\"". $post["id"]."\"/>";
+                    $html.="<button type=\"submit\" class=\"btn btn-primary\">Delete</button></form><br>";
+
+                    $html.="<form action=\"?command=edit\" method=\"get\">";
+                    $html.="<input type=\"hidden\" name=\"number\" value=\"". $post["id"]."\"/>";
+                    $html.="<button type=\"submit\" class=\"btn btn-primary\">Edit</button></form>";
+
+                    $html.="</div>";
+                }
+                $html.="</div> </section>";
+                echo $html;
+            
+            }
+
             $posts = $database->getPosts();
-
-            $header="<section class=\"box\"><h1>My Posts</h1></section>";
-            echo $header;
-
             $header="<section class=\"box\"><h1>All Posts</h1></section>";
             echo $header;
 

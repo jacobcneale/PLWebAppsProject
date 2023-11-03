@@ -26,9 +26,7 @@
                   <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                       <li class="nav-item">
-                        <form action="?command=posts" method="post">
-                          <button type='submit'>Explore posts</button>
-                        </form>
+                        <a class="nav-link" href="index.php?command=posts">Explore Posts</a>
                       </li>
                       <li class="nav-item">
                         <a class="nav-link" href="restaurants.html">Restaurants</a>
@@ -102,62 +100,26 @@
         <div class="container-fluid pagesection myfeed">
           <h3>My Feed</h3>
           <div class="container-fluid row row-cols-auto post-items">
-            <div>
-              <div class="postheader">
-                <h3>Too few late night</h3>
-                <p>Post by <a href="profile.html">@jacobneale</a></p>
-              </div>
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Et pharetra pharetra massa massa. In nisl nisi scelerisque eu ultrices. Massa vitae tortor condimentum lacinia quis. Nisl nisi scelerisque eu ultrices vitae auctor eu augue ut. Risus nullam eget felis eget nunc lobortis mattis aliquam faucibus.
-              </p>
-            </div>
-            <div>
-              <div class="postheader">
-                <h3>The new event is</h3>
-                <p>Post by <a href="profile.html">@jacobneale</a></p>
-              </div>
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Et pharetra pharetra massa massa. In nisl nisi scelerisque eu ultrices. Massa vitae tortor condimentum lacinia quis. Nisl nisi scelerisque eu ultrices vitae auctor eu augue ut. Risus nullam eget felis eget nunc lobortis mattis aliquam faucibus.
-              </p>
-            </div>
-            <div>
-              <div class="postheader">
-                <h3>O'hill scrambled eggs</h3>
-                <p>Review by <a href="profile.html">@jacobneale</a></p>
-              </div>
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Et pharetra pharetra massa massa. In nisl nisi scelerisque eu ultrices. Massa vitae tortor condimentum lacinia quis. Nisl nisi scelerisque eu ultrices vitae auctor eu augue ut. Risus nullam eget felis eget nunc lobortis mattis aliquam faucibus.
-              </p>
-            </div>
-            <div>
-              <div class="postheader">
-                <h3>Ultimate O'hill burger build</h3>
-                <p>Post by <a href="profile.html">@jacobneale</a></p>
-              </div>
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Et pharetra pharetra massa massa. In nisl nisi scelerisque eu ultrices. Massa vitae tortor condimentum lacinia quis. Nisl nisi scelerisque eu ultrices vitae auctor eu augue ut. Risus nullam eget felis eget nunc lobortis mattis aliquam faucibus.
-              </p>
-            </div>
-            <div>
-              <div class="postheader">
-                <h3>The downfall of West Range</h3>
-                <p>Review by <a href="profile.html">@jacobneale</a></p>
-              </div>
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Et pharetra pharetra massa massa. In nisl nisi scelerisque eu ultrices. Massa vitae tortor condimentum lacinia quis. Nisl nisi scelerisque eu ultrices vitae auctor eu augue ut. Risus nullam eget felis eget nunc lobortis mattis aliquam faucibus.
-              </p>
-            </div>
-            <div>
-              <div class="postheader">
-                <h3>What did I do to deserve this</h3>
-                <p>Post by <a href="profile.html">@jacobneale</a></p>
-              </div>
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Et pharetra pharetra massa massa. In nisl nisi scelerisque eu ultrices. Massa vitae tortor condimentum lacinia quis. Nisl nisi scelerisque eu ultrices vitae auctor eu augue ut. Risus nullam eget felis eget nunc lobortis mattis aliquam faucibus.
-              </p>
-            </div>
+            <?php
+              $posts = $database->getPosts();
+              $header="<section class=\"box\"><h1>All Posts</h1></section>";
+              echo $header;
+  
+              $html="";
+              foreach($posts as $post){
+                  $html.="<div>";
+                  $html.="<div class=\"postheader\">";
+                  $html.="<h3>". $post["title"] ."</h3>";
+                  $html.="<label> Created by: " . $post["username"] . "</label><br>";
+                  $html.="<label> " . $post["date"] . "</label>";
+                  $html.="</div>";
+                  $html.="<p> " . $post["content"] . "</p>";
+                  $html.="</div>";
+              }
+              echo $html;
+            ?>
             <div class="viewmore">
-              <h3><a href="explore.html">See More Posts</a></h3>
+              <h3><a href="index.php?command=posts">See More Posts</a></h3>
               <p></p>
             </div>
           </div>
