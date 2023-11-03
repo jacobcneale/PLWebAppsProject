@@ -42,7 +42,14 @@
                     <form class="d-flex" role="search">
                       <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
                     </form>
-                    <?php echo $_SESSION["user"] ?>
+                    <?php if (isset($_SESSION["user"])){
+                      echo $_SESSION["user"];
+                    }
+                          else {
+                            echo "<form action='?command=goto_login' method='post'>
+                            <button type='submit'>Sign In</button>
+                        </form>";
+                          }?>
                   </div>
                 </div>
               </nav>
