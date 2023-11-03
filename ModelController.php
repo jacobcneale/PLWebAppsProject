@@ -58,11 +58,19 @@ class ModelController {
                 break;
             case "logout":
                 $this->logout();
+                $this->showWelcome();
+                break;
+            case "signup":
+                $this->showSignUp();
+                break;
             case "goto_login":
                 $this->showLogin();
                 break;
             case "verify_login":
                 $this->verifyLogin();
+                break;
+            case "verify_signup":
+                $this->verifySignUp();
                 break;
             default:
                 $this->showWelcome();
@@ -103,6 +111,7 @@ class ModelController {
 
 
     public function showWelcome($username=null){
+        if (isset($_SESSION["user"])){$username=$_SESSION["user"];}
         $database=$this->db;
         include("src/templates/home.php");
     }
@@ -110,6 +119,10 @@ class ModelController {
     public function showLogin(){
         //include("src/templates/login.php");
         include("login.php");
+    }
+
+    public function showSignUp(){
+        include("src/templates/signup.php");
     }
 
     public function verifyLogin(){
@@ -127,6 +140,36 @@ class ModelController {
         else {
             $this->showLogin();
             echo "Username not found. Sign up instead?";
+        }
+    }
+
+    public function verifySignUp(){
+        $res = $this->db->getUser($_POST["username"]);
+        if (!(empty($res))){
+            $this->showSignUp();
+            echo "USERNAME TAKEN";
+        }
+        else {
+            // regex pattern from https://ihateregex.io/expr/password/
+            $regex_pattern = "/^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$ %^&*-]).{8,}$/";
+            if ($_POST["username"]===""){
+                $this->showSignUp();
+                echo "Please enter a username";
+            }
+            else if (!preg_match($regex_pattern,$_POST["password"])){
+                $this->showSignUp();
+                echo "Password must contain an upppercase letter, a lowercase letter, a number, and one of 
+                    the following: #?!@$%^&*-. It must be at least 8 characters long.";
+            }
+            else if ($_POST["password"]!==$_POST["verify_password"]){
+                $this->showSignUp();
+                echo "Passwords do not match.";
+            }
+            else {
+                $this->db->addUser($_POST["username"],password_hash($_POST["password"],PASSWORD_DEFAULT));
+                $_SESSION["user"]=$_POST["username"];
+                $this->showWelcome();
+            }
         }
     }
 
@@ -196,8 +239,6 @@ class ModelController {
      * Log out the user
      */
      public function logout() {
-        // Udate the user's score before they log out, just in case
-        $this->db->query("update users set score = $1 where email = $2;", $_SESSION["score"], $_SESSION["email"]);
         session_destroy();
         session_start();
     }

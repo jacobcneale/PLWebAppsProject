@@ -49,6 +49,9 @@
                         }
                         else {
                             echo $username;
+                            echo "<form action='?command=logout' method='post'>
+                                    <button type='submit'>Log Out</button>
+                                  </form>";
                         }
                         ?>
                     
@@ -60,7 +63,7 @@
         <!-- CALENDAR VIEW -->
         <div class="container-fluid pagesection calendar">
           <h3 id="heading3">Calendar</h3>
-          <div class="container-fluid scrollwheel-items">
+          <div class="container-fluid row row-cols-auto calendar-items">
             <div>
               <p>Monday</p>
               <p>Event-Summer Bash</p>
@@ -96,7 +99,7 @@
         <!-- FEED VIEW -->
         <div class="container-fluid pagesection myfeed">
           <h3>My Feed</h3>
-          <div class="container-fluid scrollwheel-items">
+          <div class="container-fluid row row-cols-auto post-items">
             <?php
               $posts = $database->getPosts();
               $header="<section class=\"box\"><h1>All Posts</h1></section>";
