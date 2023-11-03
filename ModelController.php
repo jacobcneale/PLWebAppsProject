@@ -72,10 +72,19 @@ class ModelController {
             case "verify_signup":
                 $this->verifySignUp();
                 break;
+            case "json":
+                $this->jsonFormat();
+                break;
             default:
                 $this->showWelcome();
                 break;
         }
+    }
+
+    public function jsonFormat(){
+        $posts=$this->db->getPosts();
+        $json=json_encode($posts);
+        include("json.php");
     }
 
     public function editPost($m){

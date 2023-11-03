@@ -107,6 +107,10 @@
             echo $html;
         ?>
 
+        <section class="box">
+          <a href="index.php?command=json">View all posts in json format.</a>
+        </section>
+
         <!--The footer-->
         <div class="container">
             <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
