@@ -102,8 +102,8 @@
           <div class="container-fluid row row-cols-auto post-items">
             <?php
               $posts = $database->getPosts();
-              $header="<section class=\"box\"><h1>All Posts</h1></section>";
-              echo $header;
+              //$header="<section class=\"box\"><h1>All Posts</h1></section>";
+              //echo $header;
   
               $html="";
               foreach($posts as $post){
