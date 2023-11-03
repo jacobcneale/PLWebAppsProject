@@ -117,8 +117,8 @@ class ModelController {
     }
 
     public function showLogin(){
-        //include("src/templates/login.php");
-        include("login.php");
+        include("src/templates/login.php");
+        //include("login.php");
     }
 
     public function showSignUp(){
