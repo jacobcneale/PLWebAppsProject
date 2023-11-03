@@ -19,7 +19,7 @@ class Database {
     public function createDatabases(){
         $dbHandle = $this->dbConnector;
 
-        // Create tables
+        // Create tables USE WITH CAUTION
         $res  = pg_query($dbHandle, "create table if not exists users (
                 username  text primary key,
                 password  text
@@ -37,6 +37,7 @@ class Database {
                 username text);");
     }
 
+    // Drop Tables USE WITH CAUTION
     public function dropTables(){
         $res  = pg_query($this->dbConnector, "drop table if exists users");
         $res  = pg_query($this->dbConnector, "drop table if exists posts");
@@ -103,7 +104,9 @@ class Database {
 
     public function getUser($username){
         $res = $this->query("select * from users where username = $1;",$username);
+        // If user doesn't exist in database, returns null
         if (empty($res)) return null;
+        // If user does exist, return an associative array containing the username and hash of the password.
         return ["username"=>$res[0]["username"],"passhash"=>$res[0]["password"]];
     }
 
