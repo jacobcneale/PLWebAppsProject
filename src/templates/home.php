@@ -26,7 +26,7 @@
                   <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                       <li class="nav-item">
-                        <a class="nav-link" href="explore.html">Explore Posts</a>
+                        <a class="nav-link" href="index.php?command=posts">Explore Posts</a>
                       </li>
                       <li class="nav-item">
                         <a class="nav-link" href="restaurants.html">Restaurants</a>
@@ -152,7 +152,7 @@
               </p>
             </div>
             <div class="viewmore">
-              <h3><a href="explore.html">See More Posts</a></h3>
+              <h3><a href="index.php?command=posts">See More Posts</a></h3>
               <p></p>
             </div>
           </div>

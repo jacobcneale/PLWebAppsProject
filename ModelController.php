@@ -19,6 +19,11 @@ class ModelController {
 
     public function run() {
         // Get the command
+        if(isset($this->input["number"])){
+            $this->editPost("");
+            return;
+        }
+
         $command = "welcome";
         if (isset($this->input["command"]))
             $command = $this->input["command"];
@@ -37,10 +42,19 @@ class ModelController {
                 $this->showPosts();
                 break;
             case "post":
-                $this->makePost();
+                $this->makePost("");
+                break;
+            case "delete":
+                $this->deletePost();
+                break;
+            case "edit":
+                $this->editPost();
                 break;
             case "submit":
                 $this->submitPost();
+                break;
+            case "submitEdit":
+                $this->submitEdit();
                 break;
             case "logout":
                 $this->logout();
@@ -56,13 +70,45 @@ class ModelController {
         }
     }
 
+    public function editPost($m){
+        $message=$m;
+        $id=$_GET["number"];
+        $post=$this->db->getPost($id);
+        $title=$post[0]["title"];
+        $content=$post[0]["content"];
+        include("edit.php");
+    }
+
+    public function submitEdit(){
+        $title = $_POST["Title2"];
+        $username=$_SESSION["username"];
+        $date=date('Y-m-d');
+        $content=$_POST["story2"];
+        $id=$_POST["editNumber"];
+        $_GET["number"]=$id;
+        if($title==""){
+            $this->editPost("Please include title");
+        }
+        else{
+            $this->db->updatePost($id, $title, $username, $date, $content);
+            $this->showPosts();
+        }
+    }
+
+    public function deletePost(){
+        $id = $_POST["number"];
+        $this->db->deletePost($id);
+        $this->showPosts();
+    }
+
 
     public function showWelcome($username=null){
         include("src/templates/home.php");
     }
 
     public function showLogin(){
-        include("src/templates/login.php");
+        //include("src/templates/login.php");
+        include("login.php");
     }
 
     public function verifyLogin(){
@@ -86,8 +132,12 @@ class ModelController {
     /*
      * Handle user registration and log-in
      */
-    public function makePost(){
-        include("posts.php");
+    public function makePost($m){
+        if(isset($_SESSION["username"])){
+            $message=$m;
+            include("posts.php");
+        }
+        $this->showPosts();
     }
 
     public function submitPost(){
@@ -95,8 +145,13 @@ class ModelController {
         $username=$_SESSION["username"];
         $date=date('Y-m-d');
         $content=$_POST["story"];
-        $this->db->addPost($title, $username, $date, $content);
-        $this->showPosts();
+        if($title==""){
+            $this->makePost("Please include title");
+        }
+        else{
+            $this->db->addPost($title, $username, $date, $content);
+            $this->showPosts();
+        }
 
     }
 
@@ -121,6 +176,10 @@ class ModelController {
     public function login() {
         // need a name, email, and password
         // If something went wrong, show the welcome page again
+        if(isset($_SESSION["username"])){
+            $this->showPosts();
+            return;
+        }
         $res = $this->db->verifyUser($_POST["name"], $_POST["passwd"]);
         if($res){
             //$this->showWelcome();
