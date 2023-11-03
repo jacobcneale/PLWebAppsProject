@@ -130,6 +130,7 @@ class ModelController {
         if (!(empty($res))){
             if (password_verify($_POST["password"],$res["passhash"])){
                 $_SESSION["user"]=$_POST["username"];
+                $_SESSION["username"]=$_POST["username"];
                 $this->showWelcome($_SESSION["user"]);
             }
             else {
@@ -168,6 +169,7 @@ class ModelController {
             else {
                 $this->db->addUser($_POST["username"],password_hash($_POST["password"],PASSWORD_DEFAULT));
                 $_SESSION["user"]=$_POST["username"];
+                $_SESSION["username"]=$_POST["username"];
                 $this->showWelcome();
             }
         }
