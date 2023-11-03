@@ -17,13 +17,15 @@ class ModelController {
 
     }
 
+    //Determines what function to execute
     public function run() {
-        // Get the command
+        // Handles get options
         if(isset($this->input["number"])){
             $this->editPost("");
             return;
         }
 
+        // Handles post options
         $command = "welcome";
         if (isset($this->input["command"]))
             $command = $this->input["command"];
@@ -81,12 +83,14 @@ class ModelController {
         }
     }
 
+    //Display posts in json
     public function jsonFormat(){
         $posts=$this->db->getPosts();
         $json=json_encode($posts);
         include("json.php");
     }
 
+    //Load edit a post form
     public function editPost($m){
         $message=$m;
         $id=$_GET["number"];
@@ -96,6 +100,7 @@ class ModelController {
         include("edit.php");
     }
 
+    //Finalize post edits
     public function submitEdit(){
         $title = $_POST["Title2"];
         $username=$_SESSION["username"];
@@ -103,6 +108,7 @@ class ModelController {
         $content=$_POST["story2"];
         $id=$_POST["editNumber"];
         $_GET["number"]=$id;
+        //make sure title is filled
         if($title==""){
             $this->editPost("Please include title");
         }
@@ -112,28 +118,32 @@ class ModelController {
         }
     }
 
+    //delete posts
     public function deletePost(){
         $id = $_POST["number"];
         $this->db->deletePost($id);
         $this->showPosts();
     }
 
-
+    //show home
     public function showWelcome($username=null){
         if (isset($_SESSION["user"])){$username=$_SESSION["user"];}
         $database=$this->db;
         include("src/templates/home.php");
     }
 
+    //login page
     public function showLogin(){
         include("src/templates/login.php");
         //include("login.php");
     }
 
+    //sign up page
     public function showSignUp(){
         include("src/templates/signup.php");
     }
 
+    //verify user login and password
     public function verifyLogin(){
         $res = $this->db->getUser($_POST["username"]);
         if (!(empty($res))){
@@ -153,6 +163,7 @@ class ModelController {
         }
     }
 
+    //verify signup is valid
     public function verifySignUp(){
         $res = $this->db->getUser($_POST["username"]);
         if (!(empty($res))){
@@ -185,7 +196,7 @@ class ModelController {
     }
 
     /*
-     * Handle user registration and log-in
+     * Loads form page
      */
     public function makePost($m){
         if(isset($_SESSION["username"])){
@@ -195,6 +206,7 @@ class ModelController {
         $this->showPosts();
     }
 
+    //submits a post from form
     public function submitPost(){
         $title = $_POST["Title"];
         $username=$_SESSION["username"];
@@ -210,24 +222,27 @@ class ModelController {
 
     }
 
+    //resets tables
     public function reset(){
         $this->db->dropTables();
         $this->db->createDatabases();
         $this->showWelcome();
     }
 
+    //displays posts page
     public function showPosts(){
         $database = $this->db;
         include("explore.php");
     }
 
-    
+    //creates a new user
     public function newUser() {
         $this->db->addUser($_POST["nameN"], $_POST["passwdB"]);
         $_SESSION["username"] = $_POST["nameN"];
         $this->showPosts();
     }
 
+    //login page
     public function login() {
         // need a name, email, and password
         // If something went wrong, show the welcome page again

@@ -62,6 +62,7 @@
         </section>
 
         <?php
+            //if logged in, view personal posts
             if(isset($_SESSION["username"])){
                 $header="<section class=\"box\"><h1>My Posts</h1></section>";
                 echo $header;
@@ -75,10 +76,12 @@
                     $html.="<label> " . $post["date"] . "</label>";
                     $html.="<p> " . $post["content"] . "</p>";
 
+                    //option to delete post
                     $html.="<form action=\"?command=delete\" method=\"post\">";
                     $html.="<input type=\"hidden\" name=\"number\" value=\"". $post["id"]."\"/>";
                     $html.="<button type=\"submit\" class=\"btn btn-primary\">Delete</button></form><br>";
 
+                    //option to edit post
                     $html.="<form action=\"?command=edit\" method=\"get\">";
                     $html.="<input type=\"hidden\" name=\"number\" value=\"". $post["id"]."\"/>";
                     $html.="<button type=\"submit\" class=\"btn btn-primary\">Edit</button></form>";
@@ -90,6 +93,7 @@
             
             }
 
+            //View all posts option
             $posts = $database->getPosts();
             $header="<section class=\"box\"><h1>All Posts</h1></section>";
             echo $header;
@@ -107,6 +111,7 @@
             echo $html;
         ?>
 
+        <!--Json Option-->
         <section class="box">
           <a href="index.php?command=json">View all posts in json format.</a>
         </section>
