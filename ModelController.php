@@ -103,6 +103,7 @@ class ModelController {
 
 
     public function showWelcome($username=null){
+        $database=$this->db;
         include("src/templates/home.php");
     }
 
