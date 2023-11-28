@@ -3,8 +3,6 @@
 class ModelController {
     private $db;
 
-    private $errorMessage = "";
-
     private $input = [];
 
     /**
@@ -58,6 +56,12 @@ class ModelController {
             case "submitEdit":
                 $this->submitEdit();
                 break;
+            case "restaurants":
+                $this->showRestaurants();
+                break;
+            case "aboutus":
+                $this->aboutUs();
+                break;
             case "logout":
                 $this->logout();
                 $this->showWelcome();
@@ -83,6 +87,14 @@ class ModelController {
         }
     }
 
+    public function aboutUs(){
+        include("aboutus.php");
+    }
+
+    public function showRestaurants(){
+        include("restaurants.php");
+    }
+
     //Display posts in json
     public function jsonFormat(){
         $posts=$this->db->getPosts();
@@ -102,6 +114,10 @@ class ModelController {
 
     //Finalize post edits
     public function submitEdit(){
+        if(!isset($_POST["Title2"])){
+            $this->showPosts();
+            return;
+        }
         $title = $_POST["Title2"];
         $username=$_SESSION["username"];
         $date=date('Y-m-d');
@@ -203,7 +219,7 @@ class ModelController {
             $message=$m;
             include("posts.php");
         }
-        $this->showPosts();
+        //$this->showPosts();
     }
 
     //submits a post from form
