@@ -9,7 +9,7 @@
         <meta name="author" content="Jacob Neale & Eric Li">
         <meta name="description" content="Sprint 2 for PL for Web Apps">
         <meta name="keywords" content="sprint uvafoodies">
-        <title>Uva Foodies Home</title>
+        <title>UVA Foodies Home</title>
 
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
         <link href="styles/main.css" rel="stylesheet">
@@ -19,7 +19,7 @@
         <header class="border-bottom">
             <nav class="navbar navbar-expand-sm">
                 <div class="container-fluid">
-                  <a class="navbar-brand" href="index.html"><img src="LogoV1.png" alt="UVA Foodies Logo" height="50" width="50"></a>
+                  <a class="navbar-brand" href="index.php?command=welcome"><img src="LogoV1.png" alt="UVA Foodies Logo" height="50" width="50"></a>
                   <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                   </button>
@@ -29,13 +29,20 @@
                         <a class="nav-link" href="index.php?command=posts">Explore Posts</a>
                       </li>
                       <li class="nav-item">
-                        <a class="nav-link" href="restaurants.html">Restaurants</a>
+                        <a class="nav-link" href="#">Events</a>
+                      </li>
+                      <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="restaurants.html" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                          Restaurants
+                        </a>
+                        <ul class="dropdown-menu">
+                          <li><a class="dropdown-item" href="#">O'Hill</a></li>
+                          <li><a class="dropdown-item" href="#">Newcomb</a></li>
+                          <li><a class="dropdown-item" href="#">Runk</a></li>
+                        </ul>
                       </li>
                       <li class="nav-item">
-                        <a class="nav-link" href="events.html">Events</a>
-                      </li>
-                      <li class="nav-item">
-                        <a class="nav-link" href="aboutus.html">About Us</a>
+                        <a class="nav-link" href="#">About Us</a>
                       </li>
                     </ul>
                     <form class="d-flex" role="search">
