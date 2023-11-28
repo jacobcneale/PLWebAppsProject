@@ -50,20 +50,16 @@
                   <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                       <li class="nav-item">
+                        <a class="nav-link" href="index.php?command=welcome">Home</a>
+                      </li> 
+                      <li class="nav-item">
                         <a class="nav-link" href="index.php?command=posts">Explore Posts</a>
                       </li>
-                      <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                          Restaurants
-                        </a>
-                        <ul class="dropdown-menu">
-                          <li><a class="dropdown-item" href="#">O'Hill</a></li>
-                          <li><a class="dropdown-item" href="#">Newcomb</a></li>
-                          <li><a class="dropdown-item" href="#">Runk</a></li>
-                        </ul>
+                      <li class="nav-item">
+                        <a class="nav-link" href="index.php?command=restaurants">Restaurants</a>
                       </li>
                       <li class="nav-item">
-                        <a class="nav-link" href="aboutus.html">About Us</a>
+                        <a class="nav-link" href="index.php?command=aboutus">About Us</a>
                       </li>
                     </ul>
                     <form class="d-flex" role="search">
@@ -164,8 +160,8 @@
               <ul class="nav col-md-4 justify-content-end">
                 <li class="nav-item"><a href="index.php?command=welcome" class="nav-link px-2 text-muted">Home</a></li>
                 <li class="nav-item"><a href="index.php?command=posts" class="nav-link px-2 text-muted">Explore Posts</a></li>
-                <li class="nav-item"><a href="restaurants.html" class="nav-link px-2 text-muted">Restaurants</a></li>
-                <li class="nav-item"><a href="aboutus.html" class="nav-link px-2 text-muted">About Us</a></li>
+                <li class="nav-item"><a href="index.php?command=restaurants" class="nav-link px-2 text-muted">Restaurants</a></li>
+                <li class="nav-item"><a href="index.php?command=aboutus" class="nav-link px-2 text-muted">About Us</a></li>
               </ul>
             </footer>
           </div>

@@ -56,6 +56,12 @@ class ModelController {
             case "submitEdit":
                 $this->submitEdit();
                 break;
+            case "restaurants":
+                $this->showRestaurants();
+                break;
+            case "aboutus":
+                $this->aboutUs();
+                break;
             case "logout":
                 $this->logout();
                 $this->showWelcome();
@@ -79,6 +85,14 @@ class ModelController {
                 $this->showWelcome();
                 break;
         }
+    }
+
+    public function aboutUs(){
+        include("aboutus.php");
+    }
+
+    public function showRestaurants(){
+        include("restaurants.php");
     }
 
     //Display posts in json

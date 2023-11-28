@@ -6,11 +6,11 @@
         <meta name="viewport" content="width=device-width, initial-scale=1"> 
 
         <meta name="author" content="Eric Li, Jacob Neale">
-        <meta name="description" content="Make your own post.">
-        <meta name="keywords" content="Posts Users Account Explore">
-        <title>Submit a Post</title> 
+        <meta name="description" content="The restaurants available at UVA">
+        <meta name="keywords" content="O'Hill Newcomb Runk Fresh Food Company UVA Food">
+        <title>Restaurants</title>
         <link rel="stylesheet" href="styles/explore.css">
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">       
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">        
         <style>
           .hover {
               cursor: pointer;
@@ -86,30 +86,45 @@
               </nav>
         </header>
 
-        <!--Form box-->
+        <!--The main title of the page-->
         <section class="box">
-            <h1>Create a Post</h1>
-            <?=$message?>
-            <form action="?command=submit" method="post">
-                <label for="Title">Title:</label>
+          <h1>Restaurants</h1>
+        </section>
 
-                <!--Title of Post-->
-                <!--input type="text" id="title" name="title" size="80" required-->
-                <input type="text" id="Title" name="Title" style="width: 80%;" >
-        
-                <br>
-
-                <label id="wordcount">0 words</label><br>
-        
-                <!--Main Post-->
-                <!--textarea id="story" name="story" rows="10" cols="100" maxlength="400" required></textarea-->
-                <label for="story">Post:</label><br>
-                <textarea name="story" id="story" rows="10" style="width: 80%;" maxlength="400"></textarea>
-
-                <br>
-        
-                <button type="submit" class="btn btn-primary">Submit Changes</button>
-            </form>
+        <!--Container for restaurants-->
+        <section class="box">
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="card" style="width: 18rem;">
+                        <img src="ohill.jpg" class="card-img-top" height="200" alt="Oberservatory Hill Dining Hall">
+                        <div class="card-body">
+                            <h5 class="card-title">O'hill Dining Hall</h5>
+                            <p class="card-text">Located near first year dormitories, O'hill has been a go-to for many UVA students.</p>
+                            <a href="#" class="btn btn-primary">Learn more</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card" style="width: 18rem;">
+                        <img src="newcomb.jpg" class="card-img-top" height="200" alt="Fresh Food Company Dining Hall">
+                        <div class="card-body">
+                            <h5 class="card-title">Fresh Food Company</h5>
+                            <p class="card-text">On the 2nd floor of Newcomb Hall, Newcomb is known for its iconic events such as Wing Wednesday.</p>
+                            <a href="#" class="btn btn-primary">Learn more</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card" style="width: 18rem;">
+                        <img src="runk.jpg" class="card-img-top" height="200" alt="Runk Dining Hall">
+                        <div class="card-body">
+                            <h5 class="card-title">Runk Dining Hall</h5>
+                            <p class="card-text">A popular spot, Runk has many unique stations such as a juice bar and smoothie stand.</p>
+                            <a href="#" class="btn btn-primary">Learn more</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </section>
 
         <!--The footer-->
@@ -129,7 +144,6 @@
               </ul>
             </footer>
           </div>
-          <script src="posts.js"></script>
           <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
     </body>
 </html>
