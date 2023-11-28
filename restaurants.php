@@ -36,6 +36,7 @@
               });
             });
         </script>
+        <script src="restaurants.js" type="text/javascript"></script>
     </head>  
     <body>
         <!--The header of the web page-->
@@ -93,8 +94,8 @@
 
         <!--Container for restaurants-->
         <section class="box">
-            <div class="row">
-                <div class="col-md-4">
+            <div class="row row-cols-auto" id="cardstable">
+                <div>
                     <div class="card" style="width: 18rem;">
                         <img src="ohill.jpg" class="card-img-top" height="200" alt="Oberservatory Hill Dining Hall">
                         <div class="card-body">
@@ -104,7 +105,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-md-4">
+                <div>
                     <div class="card" style="width: 18rem;">
                         <img src="newcomb.jpg" class="card-img-top" height="200" alt="Fresh Food Company Dining Hall">
                         <div class="card-body">
@@ -114,7 +115,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-md-4">
+                <div>
                     <div class="card" style="width: 18rem;">
                         <img src="runk.jpg" class="card-img-top" height="200" alt="Runk Dining Hall">
                         <div class="card-body">
