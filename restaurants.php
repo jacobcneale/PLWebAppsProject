@@ -95,36 +95,6 @@
         <!--Container for restaurants-->
         <section class="box">
             <div class="row row-cols-auto" id="cardstable">
-                <div>
-                    <div class="card" style="width: 18rem;">
-                        <img src="ohill.jpg" class="card-img-top" height="200" alt="Oberservatory Hill Dining Hall">
-                        <div class="card-body">
-                            <h5 class="card-title">O'hill Dining Hall</h5>
-                            <p class="card-text">Located near first year dormitories, O'hill has been a go-to for many UVA students.</p>
-                            <a href="#" class="btn btn-primary">Learn more</a>
-                        </div>
-                    </div>
-                </div>
-                <div>
-                    <div class="card" style="width: 18rem;">
-                        <img src="newcomb.jpg" class="card-img-top" height="200" alt="Fresh Food Company Dining Hall">
-                        <div class="card-body">
-                            <h5 class="card-title">Fresh Food Company</h5>
-                            <p class="card-text">On the 2nd floor of Newcomb Hall, Newcomb is known for its iconic events such as Wing Wednesday.</p>
-                            <a href="#" class="btn btn-primary">Learn more</a>
-                        </div>
-                    </div>
-                </div>
-                <div>
-                    <div class="card" style="width: 18rem;">
-                        <img src="runk.jpg" class="card-img-top" height="200" alt="Runk Dining Hall">
-                        <div class="card-body">
-                            <h5 class="card-title">Runk Dining Hall</h5>
-                            <p class="card-text">A popular spot, Runk has many unique stations such as a juice bar and smoothie stand.</p>
-                            <a href="#" class="btn btn-primary">Learn more</a>
-                        </div>
-                    </div>
-                </div>
             </div>
         </section>
 
