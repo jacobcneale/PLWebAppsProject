@@ -11,7 +11,6 @@
         <meta name="keywords" content="Explore Posts Users">
         <title>Explore Posts</title>
         <link rel="stylesheet" href="styles/explore.css">
-        <!--link rel="stylesheet" href="src/template/styles/main.css"-->
         <style>
           .hover {
               cursor: pointer;
@@ -53,11 +52,8 @@
                       <li class="nav-item">
                         <a class="nav-link" href="index.php?command=posts">Explore Posts</a>
                       </li>
-                      <li class="nav-item">
-                        <a class="nav-link" href="#">Events</a>
-                      </li>
                       <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="restaurants.html" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                           Restaurants
                         </a>
                         <ul class="dropdown-menu">
@@ -166,10 +162,9 @@
               </a>
           
               <ul class="nav col-md-4 justify-content-end">
-                <li class="nav-item"><a href="index.html" class="nav-link px-2 text-muted">Home</a></li>
-                <li class="nav-item"><a href="explore.html" class="nav-link px-2 text-muted">Explore Posts</a></li>
+                <li class="nav-item"><a href="index.php?command=welcome" class="nav-link px-2 text-muted">Home</a></li>
+                <li class="nav-item"><a href="index.php?command=posts" class="nav-link px-2 text-muted">Explore Posts</a></li>
                 <li class="nav-item"><a href="restaurants.html" class="nav-link px-2 text-muted">Restaurants</a></li>
-                <li class="nav-item"><a href="events.html" class="nav-link px-2 text-muted">Events</a></li>
                 <li class="nav-item"><a href="aboutus.html" class="nav-link px-2 text-muted">About Us</a></li>
               </ul>
             </footer>
