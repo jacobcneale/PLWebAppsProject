@@ -1,55 +1,48 @@
-var ex = document.getElementById("exists");
+function loadAllPosts() {
+    var ajax = new XMLHttpRequest();
+    ajax.open("GET", "index.php?command=json", true);
+    ajax.responseType = "json";
+    ajax.send(null);
 
-if (typeof(Storage) !== "undefined") {
-    var storageLength = localStorage.length;
+    ajax.addEventListener("load", function() {
+        if (this.status == 200) {
+            var arr = this.response;//JSON.parse(this.response);
+            displayPosts(arr);
+        } else {
+            alert("An error occured while loading the posts.");
+        }
+    });
 
-    var container = document.getElementById("postsbox");
+    ajax.addEventListener("error", function() {
+        alert("An error occured while loading the posts.");
+    });
+}
 
-    if(storageLength == 0){
-        ex.textContent = "No posts at the moment.";
+function displayPosts(posts){
+    const board = document.getElementById("postBoard");
+    board.innerHTML="";
+    posts.forEach(element => {
+        var html = "<div class=\"post\">"
+            + "<h4>" +  element["title"] + "</h4>"
+            + "<label> Created by: " + element["username"] + "</label><br>"
+            + "<label> " + element["date"] + "</label>"
+            + "<p> " + element["content"] + "</p></div>";
+        board.innerHTML+=html;
+    });
+}
+
+loadAllPosts();
+const refresh = document.getElementById("refresh");
+refresh.addEventListener("click", loadAllPosts);
+
+/*const view = document.getElementById("switchView");
+view.addEventListener("click", function() {
+    const board = document.getElementById("postBoard");
+    if(this.value="column"){
+        this.value="table";
+
     }
     else{
-        ex.textContent = "";
+
     }
-
-    for (var i = 0; i < storageLength; i=i+2) {
-        var spanOuter = document.createElement("span");
-        for(var x = i; x < storageLength && x < i + 2; x++){
-            var key = localStorage.key(x);
-            var formData = JSON.parse(localStorage.getItem(key));
-
-            var span1 = document.createElement("span");
-
-            var title = document.createElement("h4");
-            title.textContent = formData.title;
-            var user = document.createElement("label");
-            user.textContent = "Created by " + formData.user ;
-            var date = document.createElement("label");
-            date.textContent = formData.date;
-            var br = document.createElement("br");
-            var story = document.createElement("p");
-            story.textContent = formData.story;
-
-            span1.appendChild(title);
-            span1.appendChild(date);
-            span1.appendChild(br);
-            span1.appendChild(user);
-            span1.appendChild(story);
-            span1.classList.add("post");
-            span1.style.display = "inline-block";
-            span1.style.margin = "20px";
-            span1.style.width = "40%";
-            span1.style.height = "300px";
-            span1.style.border = "1px solid black";
-            span1.style.padding = "20px";
-            span1.style.placeContent="center";
-
-            spanOuter.appendChild(span1);
-            spanOuter.style.display = "block"
-        }
-        container.append(spanOuter);
-    }
-} else {
-    alert("Local storage is not supported in this browser.");
-    ex.textContent="";
-}
+});*/

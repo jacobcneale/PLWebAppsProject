@@ -89,8 +89,8 @@
         <!--Form box-->
         <section class="box">
             <h1>Create a Post</h1>
-            <?=$message?>
-            <form action="?command=submit" method="post">
+            <label style="color: red;" id="message"></label>
+            <form action="?command=submit" method="post" onsubmit="return validateForm()">
                 <label for="Title">Title:</label>
 
                 <!--Title of Post-->
@@ -108,7 +108,7 @@
 
                 <br>
         
-                <button type="submit" class="btn btn-primary">Submit Changes</button>
+                <button type="submit" class="btn btn-primary">Submit Post</button>
             </form>
         </section>
 
