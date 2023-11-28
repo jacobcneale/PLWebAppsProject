@@ -108,15 +108,15 @@
                     $html.="<label> " . $post["date"] . "</label>";
                     $html.="<p> " . $post["content"] . "</p>";
 
-                    //option to delete post
-                    $html.="<form action=\"?command=delete\" method=\"post\">";
-                    $html.="<input type=\"hidden\" name=\"number\" value=\"". $post["id"]."\"/>";
-                    $html.="<button type=\"submit\" class=\"btn btn-primary\">Delete</button></form><br>";
-
                     //option to edit post
-                    $html.="<form action=\"?command=edit\" method=\"get\">";
+                    $html.="<form action=\"?command=edit\" method=\"get\" style=\"display: inline-block; padding-right: 20px;\">";
                     $html.="<input type=\"hidden\" name=\"number\" value=\"". $post["id"]."\"/>";
                     $html.="<button type=\"submit\" class=\"btn btn-primary\">Edit</button></form>";
+
+                    //option to delete post
+                    $html.="<form action=\"?command=delete\" method=\"post\" style=\"display: inline-block;\">";
+                    $html.="<input type=\"hidden\" name=\"number\" value=\"". $post["id"]."\"/>";
+                    $html.="<button type=\"submit\" class=\"btn btn-primary\">Delete</button></form>";
 
                     $html.="</div>";
                 }
@@ -126,7 +126,7 @@
             }
 
             //View all posts option
-            $posts = $database->getPosts();
+            /*$posts = $database->getPosts();
             $header="<section class=\"box\"><h1>All Posts</h1></section>";
             echo $header;
 
@@ -140,12 +140,21 @@
                 $html.="</div>";
             }
             $html.="</div> </section>";
-            echo $html;
+            echo $html;*/
         ?>
-
-        <!--Json Option-->
+        
         <section class="box">
-          <a href="index.php?command=json">View all posts in json format.</a>
+          <h1 style="display: inline-block; padding-right: 70%">All Posts</h1>
+          <button type="button" class="btn btn-primary" id="refresh">Refresh</button>
+          <button type="button" class="btn btn-primary" id="switchView">Column View</button>
+        </section>
+        <section class="box">
+          </section>
+
+        <section class="box"> 
+          <div style="text-align: center;" id="postBoard">
+
+          </div>
         </section>
 
         <!--The footer-->
