@@ -124,38 +124,19 @@
                 echo $html;
             
             }
-
-            //View all posts option
-            /*$posts = $database->getPosts();
-            $header="<section class=\"box\"><h1>All Posts</h1></section>";
-            echo $header;
-
-            $html="<section class=\"box\"> <div style=\"text-align: center;\">";
-            foreach($posts as $post){
-                $html.="<div class=\"post\">";
-                $html.="<h4>". $post["title"] ."</h4>";
-                $html.="<label> Created by: " . $post["username"] . "</label><br>";
-                $html.="<label> " . $post["date"] . "</label>";
-                $html.="<p> " . $post["content"] . "</p>";
-                $html.="</div>";
-            }
-            $html.="</div> </section>";
-            echo $html;*/
         ?>
         
         <section class="box">
-          <h1 style="display: inline-block; padding-right: 70%">All Posts</h1>
+          <h1 style="display: inline-block; padding-right: 80%">All Posts</h1>
           <button type="button" class="btn btn-primary" id="refresh">Refresh</button>
-          <button type="button" class="btn btn-primary" id="switchView">Column View</button>
+          <!--button type="button" class="btn btn-primary" id="switchView" value="column">Column View</button-->
         </section>
-        <section class="box">
-          </section>
 
         <section class="box"> 
           <div style="text-align: center;" id="postBoard">
-
           </div>
         </section>
+        
 
         <!--The footer-->
         <div class="container">

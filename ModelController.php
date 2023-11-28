@@ -136,8 +136,10 @@ class ModelController {
 
     //delete posts
     public function deletePost(){
-        $id = $_POST["number"];
-        $this->db->deletePost($id);
+        if(isset($_POST["number"])){
+            $id = $_POST["number"];
+            $this->db->deletePost($id);
+        }
         $this->showPosts();
     }
 
@@ -161,6 +163,10 @@ class ModelController {
 
     //verify user login and password
     public function verifyLogin(){
+        if(!isset($_POST["username"])){
+            $this->showLogin();
+            return;
+        }
         $res = $this->db->getUser($_POST["username"]);
         if (!(empty($res))){
             if (password_verify($_POST["password"],$res["passhash"])){
@@ -219,6 +225,9 @@ class ModelController {
             $message=$m;
             include("posts.php");
         }
+        else{
+            $this->showLogin();
+        }
         //$this->showPosts();
     }
 
@@ -228,13 +237,15 @@ class ModelController {
         $username=$_SESSION["username"];
         $date=date('Y-m-d');
         $content=$_POST["story"];
-        if($title==""){
+        $this->db->addPost($title, $username, $date, $content);
+        $this->showPosts();
+        /*if($title==""){
             $this->makePost("Please include title");
         }
         else{
             $this->db->addPost($title, $username, $date, $content);
             $this->showPosts();
-        }
+        }*/
 
     }
 

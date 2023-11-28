@@ -30,7 +30,7 @@
     place-content: center;
 }
 
-/*@media only screen and (max-width: 900px){
+@media only screen and (max-width: 900px){
     .post {
         border: solid 1px black;
         width: 90%;
@@ -40,8 +40,8 @@
         place-content: center;
         text-align: left;
     }
-}*/
-
-#title:hover, #title:active, #story:hover, #story:active {
-    background-color: lightgreen;
 }
+
+/*#title:hover, #title:active, #story:hover, #story:active {
+    background-color: lightgreen;
+}*/
