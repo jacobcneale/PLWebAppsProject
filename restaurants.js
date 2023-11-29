@@ -52,8 +52,6 @@ document.onreadystatechange = () => {
             var text = card.getElementsByClassName('card-text')[0];
             button.addEventListener("click",function(){
                 if (button.innerHTML==="Learn more"){
-                    card.style.width = "22rem";
-                    image.setAttribute("height","244");
                     text.innerHTML = "<b>Description: </b>" + restaurant.desc +"<br>";
                     text.innerHTML +="<b>Menu: </b>" + restaurant.menu + "<br>";
                     text.innerHTML +="<b>Hours: </b><br>";
@@ -67,8 +65,6 @@ document.onreadystatechange = () => {
                     button.innerHTML = "Show less";
                 }
                 else if (button.innerHTML==="Show less"){
-                    card.style.width = "18rem";
-                    image.setAttribute("height","200");
                     text.innerHTML = restaurant.desc;
                     button.innerHTML="Learn more";
                 }

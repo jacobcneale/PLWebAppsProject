@@ -88,12 +88,12 @@
         </header>
 
         <!--The main title of the page-->
-        <section class="box">
+        <section class="box" style="width:100%">
           <h1>Restaurants</h1>
         </section>
 
         <!--Container for restaurants-->
-        <section class="box">
+        <section class="box" style="width:100%">
             <div class="row row-cols-auto" id="cardstable">
             </div>
         </section>
