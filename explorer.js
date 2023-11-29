@@ -27,7 +27,7 @@ function displayPosts(posts){
             + "<label> Created by: " + element["username"] + "</label><br>"
             + "<label> " + element["date"] + "</label>"
             + "<p> " + element["content"] + "</p></div>";
-        board.innerHTML+=html;
+        board.innerHTML = html + board.innerHTML;
     });
 }
 

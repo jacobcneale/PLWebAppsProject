@@ -84,47 +84,13 @@
               </nav>
         </header>
 
-        <!-- CALENDAR VIEW -->
-        <div class="container-fluid pagesection calendar">
-          <h3 id="heading3">Calendar</h3>
-          <div class="container-fluid row row-cols-auto calendar-items">
-            <div>
-              <p>Monday</p>
-              <p>Event-Summer Bash</p>
-            </div>
-            <div>
-              <p>Tuesday</p>
-              <p>O'Hill-Taco Tuesday</p>
-            </div>
-            <div>
-              <p>Wednesday</p>
-              <p>Newcomb-Wing Wednesday</p>
-              <p>Event-Food Trucks Meal Exchange</p>
-            </div>
-            <div class="noevents">
-              <p>Thursday</p>
-              <p>No Events</p>
-            </div>
-            <div class="noevents">
-              <p>Friday</p>
-              <p>No events</p>
-            </div>
-            <div class="noevents">
-              <p>Saturday</p>
-              <p>No events</p>
-            </div>
-            <div class="noevents">
-              <p>Sunday</p>
-              <p>No events</p>
-            </div>
-          </div>
-        </div>
-
         <!-- FEED VIEW -->
         <div class="container-fluid pagesection myfeed">
-          <h3>My Feed</h3>
-          <div class="container-fluid row row-cols-auto post-items">
-            <?php
+          <h1 style="display: inline-block; padding-right: 80%">My Feed</h1>
+          <button type="button" class="btn btn-primary" id="prev">Prev</button>
+          <button type="button" class="btn btn-primary" id="next">Next</button>
+          <div class="container-fluid row row-cols-auto post-items" id="feed">
+            <!--?php
               $posts = $database->getPosts();
               //$header="<section class=\"box\"><h1>All Posts</h1></section>";
               //echo $header;
@@ -141,7 +107,7 @@
                   $html.="</div>";
               }
               echo $html;
-            ?>
+            ?-->
             <div class="viewmore">
               <h3><a href="index.php?command=posts">See More Posts</a></h3>
               <p></p>
@@ -166,6 +132,7 @@
               </ul>
             </footer>
           </div>
+        <script src="home.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
     </body>
 </html>
