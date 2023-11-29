@@ -11,6 +11,8 @@
         <meta name="keywords" content="Explore Posts Users">
         <title>Explore Posts</title>
         <link rel="stylesheet" href="styles/explore.css">
+
+        <!--Navbar dynamic behaviors-->
         <style>
           .hover {
               cursor: pointer;
@@ -21,10 +23,10 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.js" integrity="sha512-+k1pnlgt4F1H8L7t3z95o3/KO+o78INEcXTbnoJQ/F2VqDVhWoaiVml/OEHv9HsVgxUaVW+IbiZPUJQfF/YxZw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
         <script>
+            //Jquery to change classes
             $(document).ready(function() {
               $("ul.navbar-nav li").on("mouseover", function() {
                   $(this).addClass("hover");
-                  //alert("hello");
               });
               $("ul.navbar-nav li").on("mouseout", function() {
                   $(this).removeClass("hover");
@@ -65,6 +67,7 @@
                     <form class="d-flex" role="search">
                       <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
                     </form>
+                    <!--Checks if logged in-->
                     <?php
                         $username=null;
                         if(isset($_SESSION["username"])){
@@ -126,10 +129,10 @@
             }
         ?>
         
+        <!--Posts location-->
         <section class="box">
           <h1 style="display: inline-block; padding-right: 80%">All Posts</h1>
           <button type="button" class="btn btn-primary" id="refresh">Refresh</button>
-          <!--button type="button" class="btn btn-primary" id="switchView" value="column">Column View</button-->
         </section>
 
         <section class="box"> 

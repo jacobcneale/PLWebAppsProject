@@ -13,6 +13,8 @@
 
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
         <link href="styles/main.css" rel="stylesheet">
+
+        <!--Navbar dynamic behaviors-->
         <style>
           .hover {
               cursor: pointer;
@@ -22,6 +24,7 @@
         </style>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.js" integrity="sha512-+k1pnlgt4F1H8L7t3z95o3/KO+o78INEcXTbnoJQ/F2VqDVhWoaiVml/OEHv9HsVgxUaVW+IbiZPUJQfF/YxZw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
         <script>
+            //JQuery to change styles
             $(document).ready(function() {
               $("ul.navbar-nav li").on("mouseover", function() {
                   $(this).addClass("hover");
@@ -66,6 +69,7 @@
                     <form class="d-flex" role="search">
                       <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
                     </form>
+                    <!--Checks if logged in-->
                     <?php
                         if ($username===null){
                             echo "<form action='?command=goto_login' method='post'>
@@ -90,24 +94,6 @@
           <button type="button" class="btn btn-primary" id="prev">Prev</button>
           <button type="button" class="btn btn-primary" id="next">Next</button>
           <div class="container-fluid row row-cols-auto post-items" id="feed">
-            <!--?php
-              $posts = $database->getPosts();
-              //$header="<section class=\"box\"><h1>All Posts</h1></section>";
-              //echo $header;
-  
-              $html="";
-              foreach($posts as $post){
-                  $html.="<div>";
-                  $html.="<div class=\"postheader\">";
-                  $html.="<h3>". $post["title"] ."</h3>";
-                  $html.="<label> Created by: " . $post["username"] . "</label><br>";
-                  $html.="<label> " . $post["date"] . "</label>";
-                  $html.="</div>";
-                  $html.="<p> " . $post["content"] . "</p>";
-                  $html.="</div>";
-              }
-              echo $html;
-            ?-->
             <div class="viewmore">
               <h3><a href="index.php?command=posts">See More Posts</a></h3>
               <p></p>

@@ -1,5 +1,6 @@
 var index = 0;
 
+//Retrieves posts data from database via json and ajax
 function loadHomePosts() {
     var ajax = new XMLHttpRequest();
     ajax.open("GET", "index.php?command=json", true);
@@ -20,6 +21,7 @@ function loadHomePosts() {
     });
 }
 
+//Displays the posts in the feed section
 function displayHome(posts){
     const feed = document.getElementById("feed");
     feed.innerHTML="";
@@ -40,8 +42,10 @@ function displayHome(posts){
     feed.innerHTML += "<div class=\"viewmore\"><h3><a href=\"index.php?command=posts\">See More Posts</a></h3><p></p></div>";
 }
 
+//Changes which posts (by index) are viewed
 let change = (a) => {index+=a; loadHomePosts();}
 
+//Adds listeners to buttons to change view
 loadHomePosts();
 const next = document.getElementById("next");
 next.addEventListener("click", function() {change(1);});

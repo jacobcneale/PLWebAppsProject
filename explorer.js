@@ -1,3 +1,4 @@
+//Retrieves posts via ajax
 function loadAllPosts() {
     var ajax = new XMLHttpRequest();
     ajax.open("GET", "index.php?command=json", true);
@@ -18,6 +19,7 @@ function loadAllPosts() {
     });
 }
 
+//Displays the posts under a div header
 function displayPosts(posts){
     const board = document.getElementById("postBoard");
     board.innerHTML="";
@@ -31,18 +33,7 @@ function displayPosts(posts){
     });
 }
 
+//Loads posts and adds listener to refresh button
 loadAllPosts();
 const refresh = document.getElementById("refresh");
 refresh.addEventListener("click", loadAllPosts);
-
-/*const view = document.getElementById("switchView");
-view.addEventListener("click", function() {
-    const board = document.getElementById("postBoard");
-    if(this.value="column"){
-        this.value="table";
-
-    }
-    else{
-
-    }
-});*/

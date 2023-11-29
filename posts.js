@@ -6,6 +6,7 @@ const wordCount = document.getElementById("wordcount");
 // Add an input event listener to the textarea
 textBox.addEventListener("input", updateWordCount);
 
+//Counts words
 function updateWordCount() {
     const text = textBox.value;
     const words = text.split(/\s+/);
@@ -13,6 +14,7 @@ function updateWordCount() {
     wordCount.textContent = filteredWords.length+" words";
 }
 
+//Makes sure form is filled out
 function validateForm(){
     var regex = /\S/;
     if(!regex.test(title.value) || title.value==""){
