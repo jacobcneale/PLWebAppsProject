@@ -1,11 +1,23 @@
 .post {
     border: solid 1px black;
     width: 45%;
+    height: 300px;
     display: inline-block;
     margin: 20px;
     padding: 30px;
     place-content: center;
     text-align: left;
+}
+
+.wide-post {
+    border: solid 1px black;
+    width: 60%;
+    height: 400px;
+    display: inline-block;
+    margin: 20px;
+    padding: 30px;
+    place-content: center;
+    text-align: center;
 }
 
 .box {
@@ -30,6 +42,6 @@
     }
 }
 
-#title:hover, #title:active, #story:hover, #story:active {
+/*#title:hover, #title:active, #story:hover, #story:active {
     background-color: lightgreen;
-}
+}*/

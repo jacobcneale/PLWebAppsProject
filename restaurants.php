@@ -6,11 +6,11 @@
         <meta name="viewport" content="width=device-width, initial-scale=1"> 
 
         <meta name="author" content="Eric Li, Jacob Neale">
-        <meta name="description" content="Edit your own post.">
-        <meta name="keywords" content="Posts Users Account Explore">
-        <title>Edit a Post</title> 
+        <meta name="description" content="The restaurants available at UVA">
+        <meta name="keywords" content="O'Hill Newcomb Runk Fresh Food Company UVA Food">
+        <title>Restaurants</title>
         <link rel="stylesheet" href="styles/explore.css">
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">       
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">        
         <style>
           .hover {
               cursor: pointer;
@@ -36,6 +36,7 @@
               });
             });
         </script>
+        <script src="restaurants.js" type="text/javascript"></script>
     </head>  
     <body>
         <!--The header of the web page-->
@@ -86,32 +87,15 @@
               </nav>
         </header>
 
-        <!--Form box-->
+        <!--The main title of the page-->
         <section class="box">
-            <h1>Edit Your Post</h1>
-            <?=$message?>
-            <label style="color: red;" id="message2"></label>
-            <form action="?command=submitEdit" method="post" onsubmit="return validateEdit()">
-                <label for="Title2">Title:</label>
+          <h1>Restaurants</h1>
+        </section>
 
-                <!--Title of Post-->
-                <!--input type="text" id="title" name="title" size="80" required-->
-                <input type="text" id="Title2" name="Title2" style="width: 80%;" value="<?=$title?>"/>
-        
-                <br>
-
-                <label id="wordcount2">0 words</label><br>
-                <input type="hidden" name="editNumber" value=<?=$id?>>
-        
-                <!--Main Post-->
-                <!--textarea id="story" name="story" rows="10" cols="100" maxlength="400" required></textarea-->
-                <label for="story2">Post:</label><br>
-                <textarea name="story2" id="story2" rows="10" style="width: 80%;" maxlength="400"><?=$content?></textarea>
-
-                <br>
-        
-                <button type="submit" class="btn btn-primary">Submit</button>
-            </form>
+        <!--Container for restaurants-->
+        <section class="box">
+            <div class="row row-cols-auto" id="cardstable">
+            </div>
         </section>
 
         <!--The footer-->
@@ -131,7 +115,6 @@
               </ul>
             </footer>
           </div>
-          <script src="editPosts.js"></script>
           <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
     </body>
 </html>

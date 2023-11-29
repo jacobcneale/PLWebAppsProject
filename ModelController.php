@@ -3,8 +3,6 @@
 class ModelController {
     private $db;
 
-    private $errorMessage = "";
-
     private $input = [];
 
     /**
@@ -58,6 +56,12 @@ class ModelController {
             case "submitEdit":
                 $this->submitEdit();
                 break;
+            case "restaurants":
+                $this->showRestaurants();
+                break;
+            case "aboutus":
+                $this->aboutUs();
+                break;
             case "logout":
                 $this->logout();
                 $this->showWelcome();
@@ -83,6 +87,14 @@ class ModelController {
         }
     }
 
+    public function aboutUs(){
+        include("aboutus.php");
+    }
+
+    public function showRestaurants(){
+        include("restaurants.php");
+    }
+
     //Display posts in json
     public function jsonFormat(){
         $posts=$this->db->getPosts();
@@ -102,6 +114,10 @@ class ModelController {
 
     //Finalize post edits
     public function submitEdit(){
+        if(!isset($_POST["Title2"])){
+            $this->showPosts();
+            return;
+        }
         $title = $_POST["Title2"];
         $username=$_SESSION["username"];
         $date=date('Y-m-d');
@@ -120,8 +136,10 @@ class ModelController {
 
     //delete posts
     public function deletePost(){
-        $id = $_POST["number"];
-        $this->db->deletePost($id);
+        if(isset($_POST["number"])){
+            $id = $_POST["number"];
+            $this->db->deletePost($id);
+        }
         $this->showPosts();
     }
 
@@ -145,6 +163,10 @@ class ModelController {
 
     //verify user login and password
     public function verifyLogin(){
+        if(!isset($_POST["username"])){
+            $this->showLogin();
+            return;
+        }
         $res = $this->db->getUser($_POST["username"]);
         if (!(empty($res))){
             if (password_verify($_POST["password"],$res["passhash"])){
@@ -203,7 +225,10 @@ class ModelController {
             $message=$m;
             include("posts.php");
         }
-        $this->showPosts();
+        else{
+            $this->showLogin();
+        }
+        //$this->showPosts();
     }
 
     //submits a post from form
@@ -212,13 +237,15 @@ class ModelController {
         $username=$_SESSION["username"];
         $date=date('Y-m-d');
         $content=$_POST["story"];
-        if($title==""){
+        $this->db->addPost($title, $username, $date, $content);
+        $this->showPosts();
+        /*if($title==""){
             $this->makePost("Please include title");
         }
         else{
             $this->db->addPost($title, $username, $date, $content);
             $this->showPosts();
-        }
+        }*/
 
     }
 
